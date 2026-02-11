@@ -1,0 +1,43 @@
+Components of Docker
+
+        Docker Engine
+            Runs the containers , it has :
+                                            Docker daemon (bg service)
+                                            Docker CLI 
+
+        Docker Image 
+            It is a blueprint or a template , it contains :
+                                            OS Layer 
+                                            Application 
+                                            Dependencies
+                                            Configuration
+            They are read only
+
+        Docker Container
+                        Running instance of an image (object - container , class - image)
+                        docker run -d -p 8080:80 nginx 
+                        Same ports for multiple apps creates conflicts
+
+        Dockerfile 
+                    Instructions on how to build a image 
+                    FROM pulls an image
+                    use alphine for image with lower size
+                    WORKDIR-working directory
+                    COPY og file  destination file 
+                    CMD , commands in an list of strings 
+
+        Docker Registry
+                    central and distributed system for images 
+
+        Docker Hub 
+                    Has Docker Images
+
+
+        Docker Workflow
+                        write code -> 
+                            create dockerfile -> 
+                                build image ->
+                                    push image to docker hub ->
+                                        pull image on server ->
+                                                        run the container
+    
