@@ -1,0 +1,108 @@
+    1  ifconfig
+    2  sudo apt update 
+    3  sudo apt remove docker docker-engine docker.io containerd runc -y
+    4  sudo apt update
+    5  sudo apt upgrade -y
+    6  sudo apt remove docker docker-engine docker.io containerd runc -y
+    7  sudo apt install -y ca-certificates curl gnupg lsb-release
+    8  sudo mkdir -p /etc/apt/keyrings
+    9  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+   10  sudo chmod a+r /etc/apt/keyrings/docker.gpg
+   11  echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] \
+   12  https://download.docker.com/linux/ubuntu \
+   13  $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+   14  sudo apt update
+   15  sudo apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+   16  sudo systemctl start docker
+   17  sudo systemctl enable docker
+   18  sudo systemctl status docker
+   19  sudo docker run hello-world
+   20  sudo usermod -aG docker $USER
+   21  reboot
+   22  sudo apt
+   23  docker run hello-world
+   24  docker --version
+   25  sudo systemctl status docker
+   26  udo reboot
+   27  sudo reboot
+   28  ip a
+   29  sudo apt install
+   30  history 
+   31  ifconfig
+   32  sudo apt install net-tools
+   33  sudo apt update
+   34  sudo apt install net-tools
+   35  --fix-missing
+   36  ls -l /etc/resolv.conf
+   37  resolvectl status
+   38  ping 8.8.8.8
+   39  ping google.com
+   40  ls /etc/netplan
+   41  ls /etc/netplan/
+   42  ls -l /etc/netplan
+   43  sudo nano /etc/netplan/01-netcfg.yaml
+   44  sudo netplan generate
+   45  sudo nano /etc/netplan/01-netcfg.yaml
+   46  sudo netplan generate
+   47  sudo nano /etc/netplan/01-netcfg.yaml
+   48  sudo netplan generate
+   49  sudo nano /etc/netplan/01-netcfg.yaml
+   50  sudo netplan generate
+   51  sudo netplan apply
+   52  resolvectl status
+   53  sudo chmod 600 /etc/netplan/01-netcfg.yaml
+   54  sudo netplan apply
+   55  ping -c 3 google.com
+   56  sudo nano /etc/netplan/01-netcfg.yaml
+   57  ping -c 3 google.com
+   58  sudo apt update
+   59  ifconfig
+   60  sudo apt install net-tools
+   61  ifconfig
+   62  sudo usermod -aG docker $USER
+   63  sudo reboot
+   64  docker run hello-world
+   65  git config --list
+   66  ssh-keygen -t ed25519 -C "varunify.777@gmail.com"
+   67  eval "$(ssh-agent -s)"
+   68  ssh-add ~/.ssh/id_ed25519
+   69  cat ~/.ssh/id_ed25519.pub
+   70  ssh -T git@github.com
+   71  git clone git@github.com:theunknownodysseus/devops.git
+   72  docker ps
+   73  history
+   74  clear
+   75  docker ps
+   76  cd docker_sample
+   77  docker build -t myhelloapp
+   78  docker build -t myhelloapp .
+   79  clear
+   80  docker build -t myhelloapp .
+   81  clear
+   82  docker build -t myhelloapp .
+   83  docker ps
+   84  docker run -d -p 8080:3000 nginx
+   85  docker ps
+   86  ifconfig
+   87  docker exec -it competent_kepler sh
+   88  docker stop competent_kepler
+   89  docker rm competent_kepler
+   90  docker run -p 8080:80 nginx
+   91  docker run -p 8080:3000 myhelloapp
+   92  docker ps
+   93  docker run -p 8080:80 nginx
+   94  docker ps
+   95  docker run -p 8080:3000 myhelloapp
+   96  docker stop competent_kepler
+   97  docker rm competent_kepler
+   98  docker ps
+   99  docker run -p 8080:3000 myhelloapp
+  100  docker build -t myhelloapp .
+  101  docker ps
+  102  docker run -p 8080:3000 myhelloapp
+  103  docker ps
+  104  cd ..
+  105  cd devops
+  106  cd day3
+  107  touch commands.txt
+  108  history > commands.txt
