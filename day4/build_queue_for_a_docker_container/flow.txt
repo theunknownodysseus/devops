@@ -1,0 +1,33 @@
+
+(Can also be done with SCM (Source Code Management) & github)
+
+myresumerunner-builder:
+    A Jenkins job (myresumerunner-builder) that pulls code from a GitHub repository and runs a series of build steps.
+    It’s configured to connect to a Git repository, trigger builds in response to events (like code changes or schedules), and run commands (e.g., git clone, navigate into the project, and other shell steps).
+
+
+    Execute Shell :
+    git clone https://github.com/theunknownodysseus/buildqueuetesting.git
+    cd buildqueuetesting
+
+myresumerunner-image:
+    A Jenkins job that builds a Docker image from the code located in the myresumerunner-builder/workspace path (specifically the buildqueuetesting directory).
+    It starts the build when the myresumerunner-builder sucessfully executed 
+
+    Execute Shell :
+    cd /var/lib/jenkins/workspace/myresumerunner-builder/buildqueuetesting
+    docker build -t gogogaga .
+    echo "image build - varun " 
+
+myresumerunner-run:
+    A Jenkins job that runs a Docker container from the image gogogaga using the command:
+    
+    docker run -d -p 8050:5000 gogogaga
+
+    Execute Shell :
+    cd /var/lib/jenkins/workspace/myresumerunner-image
+    docker run -d -p 8050:5000 gogogaga
+    echo "running the container - varun"
+
+
+    This is how I made it.
