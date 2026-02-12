@@ -1,0 +1,2 @@
+CONTAINER ID   IMAGE      COMMAND                  CREATED                  STATUS                  PORTS                                         NAMES
+6147874cd1df   myresume   "docker-entrypoint.s…"   Less than a second ago   Up Less than a second   0.0.0.0:8050->5000/tcp, [::]:8050->5000/tcp   jovial_moser
