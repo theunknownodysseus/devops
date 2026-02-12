@@ -1,4 +1,4 @@
-# DevOps Learning Journey
+# DevOps
 
 I am writing this documentation to record my journey for learning the fundamentals of DevOps and the tools that make it possible.
 
