@@ -1,0 +1,128 @@
+Jenkins Pipeline:
+A pipeline is one job that defines multiple stages/steps executed in order (or in parallel)
+
+Pipeline Script:
+pipeline{
+    agent any
+    stages{
+        stage('Print Hello'){
+            steps{
+                sh 'pwd'
+                git branch: 'main',url:'https://github.com/theunknownodysseus/buildqueuetesting.git'
+                echo 'Hello'
+                sh 'ls'
+            }
+        }
+        stage('Docker'){
+            steps{
+                sh 'docker build -t web134 .'
+                sh 'docker run -d -p 5000:5000 web134'
+            }
+        }
+    }
+}
+
+Output:
+
+Started by user varun
+[Pipeline] Start of Pipeline
+[Pipeline] node
+Running on Jenkins in /var/lib/jenkins/workspace/firstpipeline
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Print Hello)
+[Pipeline] sh
++ pwd
+/var/lib/jenkins/workspace/firstpipeline
+[Pipeline] git
+The recommended git tool is: NONE
+No credentials specified
+Cloning the remote Git repository
+Cloning repository https://github.com/theunknownodysseus/buildqueuetesting.git
+ > git init /var/lib/jenkins/workspace/firstpipeline # timeout=10
+Fetching upstream changes from https://github.com/theunknownodysseus/buildqueuetesting.git
+ > git --version # timeout=10
+ > git --version # 'git version 2.43.0'
+ > git fetch --tags --force --progress -- https://github.com/theunknownodysseus/buildqueuetesting.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git config remote.origin.url https://github.com/theunknownodysseus/buildqueuetesting.git # timeout=10
+ > git config --add remote.origin.fetch +refs/heads/*:refs/remotes/origin/* # timeout=10
+Avoid second fetch
+ > git rev-parse refs/remotes/origin/main^{commit} # timeout=10
+Checking out Revision 22b57016bb3731bc81834ad9d3a1721296836399 (refs/remotes/origin/main)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 22b57016bb3731bc81834ad9d3a1721296836399 # timeout=10
+ > git branch -a -v --no-abbrev # timeout=10
+ > git checkout -b main 22b57016bb3731bc81834ad9d3a1721296836399 # timeout=10
+Commit message: "Add files via upload"
+First time build. Skipping changelog.
+[Pipeline] echo
+Hello
+[Pipeline] sh
++ ls
+Dockerfile
+index.html
+package.json
+server.js
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Docker)
+[Pipeline] sh
++ docker build -t web134 .
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 29B 0.0s
+#1 transferring dockerfile: 144B 0.0s done
+#1 DONE 0.1s
+
+#2 [internal] load metadata for docker.io/library/node:18-alpine
+#2 DONE 2.5s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [internal] load build context
+#4 DONE 0.0s
+
+#5 [1/4] FROM docker.io/library/node:18-alpine@sha256:8d6421d663b4c28fd3ebc498332f249011d118945588d0a35cb9bc4b8ca09d9e
+#5 resolve docker.io/library/node:18-alpine@sha256:8d6421d663b4c28fd3ebc498332f249011d118945588d0a35cb9bc4b8ca09d9e 0.0s done
+#5 DONE 0.1s
+
+#4 [internal] load build context
+#4 transferring context: 38.87kB 0.0s done
+#4 DONE 0.1s
+
+#6 [2/4] WORKDIR /server
+#6 CACHED
+
+#7 [3/4] COPY . .
+#7 DONE 0.1s
+
+#8 [4/4] RUN npm install
+#8 5.355 
+#8 5.355 up to date, audited 1 package in 2s
+#8 5.357 
+#8 5.357 found 0 vulnerabilities
+#8 DONE 5.4s
+
+#9 exporting to image
+#9 exporting layers
+#9 exporting layers 0.2s done
+#9 exporting manifest sha256:0c1c3f517334c4970c187df48670cee269da284d16b590d1c187c245242d1291 done
+#9 exporting config sha256:28a235001ce26376d60709550733a498e6ea6d20a062656374d37b9b4f6c06d1 done
+#9 exporting attestation manifest sha256:acaaf90c241370b62b989a2b53111e1811aa6ef71bcf3d956c894775187671c1 0.0s done
+#9 exporting manifest list sha256:732700aecc16335aa1905766b80f045eba69f500158573c68e6aba4233a084df done
+#9 naming to docker.io/library/web134:latest done
+#9 unpacking to docker.io/library/web134:latest 0.1s done
+#9 DONE 0.4s
+[Pipeline] sh
++ docker run -d -p 5000:5000 web134
+34a7cc0fa5766e58c02f50a76ed4289944a4498f5274b2772ff6c0eec923e531
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] End of Pipeline
+Finished: SUCCESS
