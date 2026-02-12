@@ -1,6 +1,8 @@
 Jenkins Pipeline:
 A pipeline is one job that defines multiple stages/steps executed in order (or in parallel)
 
+
+
 Pipeline Script:
 pipeline{
     agent any
@@ -22,7 +24,9 @@ pipeline{
     }
 }
 
-Output:
+
+
+Possible Output:
 
 Started by user varun
 [Pipeline] Start of Pipeline
