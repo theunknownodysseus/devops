@@ -210,3 +210,7 @@ echo "running the container - varun"
 ![Build Queue Image 1](day4/build_queue_for_a_docker_container/image1.png)
 ![Build Queue Image 2](day4/build_queue_for_a_docker_container/image2.png)
 ![Build Queue Image 3](day4/build_queue_for_a_docker_container/image3.png)
+
+
+
+## Day 5: AWS and Cloud
