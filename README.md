@@ -214,3 +214,90 @@ echo "running the container - varun"
 
 
 ## Day 5: AWS and Cloud
+
+Explored Cloud Computing concepts and AWS services.
+
+### Key Concepts
+- **Cloud Service Models**:
+    - **IaaS (Infrastructure as a Service)**: Computing resources over the internet (e.g., AWS EC2).
+    - **PaaS (Platform as a Service)**: Managed platforms for developing and deploying apps (e.g., AWS Elastic Beanstalk).
+    - **SaaS (Software as a Service)**: Complete software solutions (e.g., Gmail, Dropbox).
+
+### AWS Services
+- **EC2 (Elastic Compute Cloud)**: Scalable virtual servers.
+    - **AMI (Amazon Machine Image)**: The OS template for the instance (e.g., Amazon Linux, Ubuntu).
+    - **Instance Types**: Defines vCPU and Memory resources.
+    - **Key Pairs**: Secure login information (Public/Private keys, `.pem`/`.ppk`).
+    - **Security Groups**: Virtual firewalls to control traffic (e.g., SSH on port 22, HTTP on port 80).
+- **VPC (Virtual Private Cloud)**: Isolated network environment.
+- **IAM (Identity and Access Management)**: Manage access to AWS resources.
+- **S3 (Simple Storage Service)**: Scalable object storage.
+
+### Terraform (Infrastructure as a Code)
+Used Terraform to manage infrastructure programmatically.
+
+- **Benefits**: Version controlled, reproducible, less prone to human error.
+- **Core Workflow**:
+    1.  `terraform init`: Initialize the working directory.
+    2.  `terraform plan`: Preview changes.
+    3.  `terraform apply`: Create/update resources.
+    4.  `terraform destroy`: Clean up resources.
+
+**Example `main.tf` snippet**:
+```hcl
+resource "aws_instance" "web" {
+  ami           = "ami-12345678"
+  instance_type = "t2.micro"
+}
+```
+
+### Screenshots
+![AWS Console](day5/image.png)
+![IAM](day5/IAM/image.png)
+![Linux Instance](day5/linuxinstance/image.png)
+![Windows Instance](day5/windowsinstance/image.png)
+![Hosting](day5/hosting/image.png)
+![AWS CLI](day5/AWS-CLI/image.png)
+![Terraform Init](day5/Terraform/image.png)
+![Terraform Plan](day5/Terraform/image1.png)
+
+---
+
+## Day 6: Configuration Management & Orchestration
+
+Focused on automating configuration and managing containerized applications.
+
+### Ansible
+Comparison of tools:
+- **Docker**: Containerization.
+- **Jenkins**: Automation/CI/CD.
+- **Terraform**: Infrastructure Provisioning.
+- **Ansible**: Configuration Management.
+
+**Key Concepts**:
+- **Architecture**: Control Node (Master) manages Managed Nodes (Slaves) via SSH. Agentless.
+- **Playbook**: YAML file defining tasks to be executed.
+- **Inventory**: File listing the managed nodes (IPs/Hostnames).
+
+**Command**: `ansible-playbook -i inventory.ini playbook.yml`
+
+### Kubernetes (K8s)
+Container orchestration platform for managing multiple containers across multiple servers.
+
+- **Role**: The "Manager" for container "Workers".
+- **Key Concepts**:
+    - **Pod**: Smallest unit, runs one or more containers.
+    - **Deployment**: Manages Pods (Replicas, Updates, Rollbacks).
+    - **Service**: Exposes Pods to the network.
+- **Features**: Auto-scaling, Self-healing, Load balancing.
+
+### Prometheus & Grafana
+- **Prometheus**: Collects and stores metrics (Time Series Database).
+- **Grafana**: Visualizes metrics in dashboards.
+
+### Screenshots
+![Ansible Installation](day6/ansible/installation.png)
+![Ansible Site Status](day6/ansible/in-the-site.png)
+![Apache Status Before](day6/ansible/apachestatusbefore.png)
+![Apache Status After](day6/ansible/apachestatus%20afteransible.png)
+
