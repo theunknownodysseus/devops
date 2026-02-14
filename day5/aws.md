@@ -40,7 +40,7 @@ Cloud Tech:
     for specifing what kind of script we are using , we use shbang 
         using #! bin/bash
 
-        any commang given is executed in the machine 
+        any command given is executed in the machine 
 
     Public ip is a pool of ip, you will get assigned , but if you want a specify ip just for you that is when you use elastic ip 
 
